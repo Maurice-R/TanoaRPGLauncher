@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -614,7 +614,6 @@ namespace TanoaRPG_Launcher
 
                 buttons_settings.BorderStyle = BorderStyle.None;
                 settings_opened = false;
-                box_settings.Visible = false;
 
                 settings_text_A3Pfad.Visible = false;
                 settings_textbox_a3pfad.Visible = false;
@@ -637,6 +636,9 @@ namespace TanoaRPG_Launcher
                 settings_text_startparameters.Visible = false;
                 settings_textbox_startparameters.Visible = false;
                 settings_button_save.Visible = false;
+
+                box_settings.Visible = false;
+
 
             }
             else
@@ -945,18 +947,18 @@ namespace TanoaRPG_Launcher
 
             alleparameter = alleparameter + " -connect=89.163.144.28 -port=2302 -noLauncher";
 
-            Properties.Settings.Default.a3path = a3pfad;
-            Properties.Settings.Default.ram = ram;
-            Properties.Settings.Default.vram = gram;
-            Properties.Settings.Default.parameters = alleparameter;
-            Properties.Settings.Default.cpucores = cores;
+            Properties.Settings.Default["a3path"] = a3pfad;
+            Properties.Settings.Default["ram"] = ram;
+            Properties.Settings.Default["vram"] = gram;
+            Properties.Settings.Default["parameters"] = alleparameter;
+            Properties.Settings.Default["cpucores"] = cores;
 
 
             string selectedItem = (string)this.settings_combobox_profiles.SelectedItem;
             if (string.IsNullOrEmpty(selectedItem) ? false : selectedItem != "Default")
             {
                 int str2 = this.settings_combobox_profiles.SelectedIndex;
-                Properties.Settings.Default.profileid = str2;
+                Properties.Settings.Default["profileid"] = str2;
             }
             startProfileName = settings_combobox_profiles.SelectedIndex;
 
@@ -964,6 +966,7 @@ namespace TanoaRPG_Launcher
 
 
             allpar = alleparameter + " \"-name=" + settings_combobox_profiles.SelectedItem + "\"";
+
         }
 
         #endregion
