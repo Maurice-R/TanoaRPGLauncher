@@ -32,9 +32,9 @@ namespace TanoaRPG_Launcher
 
         #region Variables
 
-        public static string _currentVersionFile() => new StreamReader(new WebClient().OpenRead("https://cdn.cat24max.de/tanoarpg/currentVersionFile.txt")).ReadToEnd();
+        public static string _currentVersionFile() => new StreamReader(new WebClient().OpenRead("http://cdn.cat24max.de/tanoarpg/currentVersionFile.txt")).ReadToEnd();
         public static string _missionFiledownloadlocation() => Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\..\\Local\\Arma 3\\MPMissionsCache\\" + _currentVersionFile();
-        public static string _getnewestversion() => new StreamReader(new WebClient().OpenRead("https://cdn.cat24max.de/tanoarpg/currentVersionString.txt")).ReadToEnd();
+        public static string _getnewestversion() => new StreamReader(new WebClient().OpenRead("http://cdn.cat24max.de/tanoarpg/currentVersionString.txt")).ReadToEnd();
 
         string par;
         string allpar;
@@ -476,12 +476,23 @@ namespace TanoaRPG_Launcher
 
         #region MouseEvent
 
-        private void buttons_download_MouseEnter(object sender, EventArgs e)
+        /*private void buttons_download_MouseEnter(object sender, EventArgs e)
         {
             if (buttons_download.Visible == false)
                 return;
 
-            buttons_download.BorderStyle = BorderStyle.FixedSingle;
+            if (buttons_download.ClientRectangle.Contains(buttons_download.PointToClient(Control.MousePosition)))
+            {
+
+                buttons_download.BorderStyle = BorderStyle.FixedSingle;
+
+            }
+            else
+            {
+
+                buttons_download.BorderStyle = BorderStyle.None;
+
+            }
 
         }
 
@@ -491,9 +502,20 @@ namespace TanoaRPG_Launcher
             if (buttons_download.Visible == false)
                 return;
 
-            buttons_download.BorderStyle = BorderStyle.None;
+            if (buttons_download.ClientRectangle.Contains(buttons_download.PointToClient(Control.MousePosition)))
+            {
 
-        }
+                buttons_download.BorderStyle = BorderStyle.FixedSingle;
+
+            }
+            else
+            {
+
+                buttons_download.BorderStyle = BorderStyle.None;
+
+            }
+
+        }*/
 
         #endregion
 
@@ -578,12 +600,23 @@ namespace TanoaRPG_Launcher
 
         #region MouseEvents
 
-        private void buttons_playbutton_MouseEnter(object sender, EventArgs e)
+        /*private void buttons_playbutton_MouseEnter(object sender, EventArgs e)
         {
             if (buttons_playbutton.Visible == false)
                 return;
 
-            buttons_playbutton.BorderStyle = BorderStyle.FixedSingle;
+            if (buttons_playbutton.ClientRectangle.Contains(buttons_playbutton.PointToClient(Control.MousePosition)))
+            {
+
+                buttons_playbutton.BorderStyle = BorderStyle.FixedSingle;
+
+            }
+            else
+            {
+
+                buttons_playbutton.BorderStyle = BorderStyle.None;
+
+            }
 
         }
 
@@ -592,9 +625,20 @@ namespace TanoaRPG_Launcher
             if (buttons_playbutton.Visible == false)
                 return;
 
-            buttons_playbutton.BorderStyle = BorderStyle.None;
+            if (buttons_playbutton.ClientRectangle.Contains(buttons_playbutton.PointToClient(Control.MousePosition)))
+            {
 
-        }
+                buttons_playbutton.BorderStyle = BorderStyle.FixedSingle;
+
+            }
+            else
+            {
+
+                buttons_playbutton.BorderStyle = BorderStyle.None;
+
+            }
+
+        }*/
 
         #endregion
 
@@ -639,7 +683,6 @@ namespace TanoaRPG_Launcher
 
                 box_settings.Visible = false;
 
-
             }
             else
             {
@@ -679,7 +722,7 @@ namespace TanoaRPG_Launcher
 
         #region MouseEvents
 
-        private void buttons_settings_MouseEnter(object sender, EventArgs e)
+        /*private void buttons_settings_MouseEnter(object sender, EventArgs e)
         {
             if (buttons_settings.Visible == false)
                 return;
@@ -692,7 +735,21 @@ namespace TanoaRPG_Launcher
 
             }
             else
-                buttons_settings.BorderStyle = BorderStyle.FixedSingle;
+            {
+                if(buttons_settings.ClientRectangle.Contains(buttons_settings.PointToClient(Control.MousePosition)))
+                {
+
+                    buttons_settings.BorderStyle = BorderStyle.FixedSingle;
+
+                }
+                else
+                {
+
+                    buttons_settings.BorderStyle = BorderStyle.None;
+
+                }
+
+            }
 
         }
 
@@ -709,9 +766,23 @@ namespace TanoaRPG_Launcher
 
             }
             else
-                buttons_settings.BorderStyle = BorderStyle.None;
+            {
+                if (buttons_settings.ClientRectangle.Contains(buttons_settings.PointToClient(Control.MousePosition)))
+                {
 
-        }
+                    buttons_settings.BorderStyle = BorderStyle.FixedSingle;
+
+                }
+                else
+                {
+
+                    buttons_settings.BorderStyle = BorderStyle.None;
+
+                }
+
+            }
+
+        }*/
 
         #endregion
 
@@ -910,7 +981,6 @@ namespace TanoaRPG_Launcher
             else
             {
 
-                this.notifyIcon1.ShowBalloonTip(1000, "TanoaRPG Launcher", "Bitte wähle ein Arma 3 Pfad aus!", ToolTipIcon.Warning);
                 text_a3running.Text = "                    Bitte wähle ein Arma 3 Pfad aus!";
                 text_a3running.Visible = true;
                 buttons_playbutton.Visible = false;
@@ -1042,7 +1112,8 @@ namespace TanoaRPG_Launcher
             }
         }
 
-        private void text_changelog_Click(object sender, EventArgs e) => Process.Start(new StreamReader(new WebClient().OpenRead("https://cdn.cat24max.de/tanoarpg/currentVersionChangelog.txt")).ReadToEnd());
+        private void text_changelog_Click(object sender, EventArgs e) => Process.Start(new StreamReader(new WebClient().OpenRead("http://cdn.cat24max.de/tanoarpg/currentVersionChangelog.txt")).ReadToEnd());
+
     }
 
 }
