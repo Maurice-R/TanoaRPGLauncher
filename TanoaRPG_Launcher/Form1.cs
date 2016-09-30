@@ -426,6 +426,7 @@ namespace TanoaRPG_Launcher
                 sw.Start();
             });
             thread.Start();
+            downloading = true;
 
         }
 
@@ -455,6 +456,7 @@ namespace TanoaRPG_Launcher
 
                 buttons_download.Visible = false;
                 buttons_playbutton.Visible = true;
+                downloading = false;
 
             });
         }
@@ -465,9 +467,14 @@ namespace TanoaRPG_Launcher
 
         #region DownloadButton
 
+        public bool downloading = false;
+
         private void buttons_download_Click(object sender, EventArgs e)
         {
             if (buttons_download.Visible == false)
+                return;
+
+            if (downloading)
                 return;
 
             bar_downloadprogress.Visible = true;
