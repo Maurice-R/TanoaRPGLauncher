@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace TanoaRPG_Launcher
 {
@@ -30,7 +30,6 @@ namespace TanoaRPG_Launcher
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.top_bar = new System.Windows.Forms.PictureBox();
             this.cancel_not_hovered = new System.Windows.Forms.PictureBox();
@@ -68,10 +67,9 @@ namespace TanoaRPG_Launcher
             this.settings_text_startparameters = new System.Windows.Forms.Label();
             this.settings_textbox_startparameters = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.settings_button_save = new System.Windows.Forms.Button();
             this.text_changelog = new System.Windows.Forms.Label();
+            this.buttons_teamspeak = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.top_bar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancel_not_hovered)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancel_hovered_texture)).BeginInit();
@@ -81,6 +79,7 @@ namespace TanoaRPG_Launcher
             ((System.ComponentModel.ISupportInitialize)(this.buttons_playbutton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttons_settings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.box_settings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttons_teamspeak)).BeginInit();
             this.SuspendLayout();
             // 
             // top_bar
@@ -122,6 +121,7 @@ namespace TanoaRPG_Launcher
             // cancel_not_hovered_texture
             // 
             this.cancel_not_hovered_texture.BackColor = System.Drawing.Color.Black;
+            this.cancel_not_hovered_texture.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancel_not_hovered_texture.Image = ((System.Drawing.Image)(resources.GetObject("cancel_not_hovered_texture.Image")));
             this.cancel_not_hovered_texture.Location = new System.Drawing.Point(834, 0);
             this.cancel_not_hovered_texture.Name = "cancel_not_hovered_texture";
@@ -144,6 +144,7 @@ namespace TanoaRPG_Launcher
             this.buttons_download.BackColor = System.Drawing.Color.Transparent;
             this.buttons_download.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttons_download.BackgroundImage")));
             this.buttons_download.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttons_download.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttons_download.Location = new System.Drawing.Point(405, 213);
             this.buttons_download.Name = "buttons_download";
             this.buttons_download.Size = new System.Drawing.Size(75, 75);
@@ -151,14 +152,13 @@ namespace TanoaRPG_Launcher
             this.buttons_download.TabStop = false;
             this.buttons_download.Visible = false;
             this.buttons_download.Click += new System.EventHandler(this.buttons_download_Click);
-            this.buttons_download.MouseEnter += new System.EventHandler(this.buttons_download_MouseEnter);
-            this.buttons_download.MouseLeave += new System.EventHandler(this.buttons_download_MouseLeave);
             // 
             // buttons_playbutton
             // 
             this.buttons_playbutton.BackColor = System.Drawing.Color.Transparent;
             this.buttons_playbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttons_playbutton.BackgroundImage")));
             this.buttons_playbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttons_playbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttons_playbutton.Location = new System.Drawing.Point(405, 213);
             this.buttons_playbutton.Name = "buttons_playbutton";
             this.buttons_playbutton.Size = new System.Drawing.Size(75, 75);
@@ -166,8 +166,6 @@ namespace TanoaRPG_Launcher
             this.buttons_playbutton.TabStop = false;
             this.buttons_playbutton.Visible = false;
             this.buttons_playbutton.Click += new System.EventHandler(this.buttons_playbutton_Click);
-            this.buttons_playbutton.MouseEnter += new System.EventHandler(this.buttons_playbutton_MouseEnter);
-            this.buttons_playbutton.MouseLeave += new System.EventHandler(this.buttons_playbutton_MouseLeave);
             // 
             // bar_downloadprogress
             // 
@@ -183,15 +181,14 @@ namespace TanoaRPG_Launcher
             this.buttons_settings.BackColor = System.Drawing.Color.Transparent;
             this.buttons_settings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttons_settings.BackgroundImage")));
             this.buttons_settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttons_settings.Location = new System.Drawing.Point(-3, 396);
+            this.buttons_settings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttons_settings.Location = new System.Drawing.Point(-1, 394);
             this.buttons_settings.Name = "buttons_settings";
             this.buttons_settings.Size = new System.Drawing.Size(75, 75);
             this.buttons_settings.TabIndex = 8;
             this.buttons_settings.TabStop = false;
             this.buttons_settings.Visible = false;
             this.buttons_settings.Click += new System.EventHandler(this.buttons_settings_Click);
-            this.buttons_settings.MouseEnter += new System.EventHandler(this.buttons_settings_MouseEnter);
-            this.buttons_settings.MouseLeave += new System.EventHandler(this.buttons_settings_MouseLeave);
             // 
             // text_a3running
             // 
@@ -545,18 +542,6 @@ namespace TanoaRPG_Launcher
             this.settings_textbox_startparameters.TabIndex = 35;
             this.settings_textbox_startparameters.Visible = false;
             // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Settings";
-            this.notifyIcon1.Visible = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // settings_button_save
             // 
             this.settings_button_save.Location = new System.Drawing.Point(256, 373);
@@ -579,6 +564,19 @@ namespace TanoaRPG_Launcher
             this.text_changelog.TabIndex = 37;
             this.text_changelog.Click += new System.EventHandler(this.text_changelog_Click);
             // 
+            // buttons_teamspeak
+            // 
+            this.buttons_teamspeak.BackColor = System.Drawing.Color.Transparent;
+            this.buttons_teamspeak.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttons_teamspeak.BackgroundImage")));
+            this.buttons_teamspeak.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttons_teamspeak.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttons_teamspeak.Location = new System.Drawing.Point(788, 394);
+            this.buttons_teamspeak.Name = "buttons_teamspeak";
+            this.buttons_teamspeak.Size = new System.Drawing.Size(75, 75);
+            this.buttons_teamspeak.TabIndex = 38;
+            this.buttons_teamspeak.TabStop = false;
+            this.buttons_teamspeak.Click += new System.EventHandler(this.buttons_teamspeak_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -586,6 +584,7 @@ namespace TanoaRPG_Launcher
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(863, 469);
+            this.Controls.Add(this.buttons_teamspeak);
             this.Controls.Add(this.text_changelog);
             this.Controls.Add(this.settings_button_save);
             this.Controls.Add(this.settings_textbox_startparameters);
@@ -623,6 +622,7 @@ namespace TanoaRPG_Launcher
             this.Controls.Add(this.cancel_hovered_texture);
             this.Controls.Add(this.cancel_not_hovered);
             this.Controls.Add(this.top_bar);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -639,6 +639,7 @@ namespace TanoaRPG_Launcher
             ((System.ComponentModel.ISupportInitialize)(this.buttons_playbutton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttons_settings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.box_settings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttons_teamspeak)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -682,10 +683,9 @@ namespace TanoaRPG_Launcher
         private System.Windows.Forms.Label settings_text_startparameters;
         private System.Windows.Forms.TextBox settings_textbox_startparameters;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button settings_button_save;
         private System.Windows.Forms.Label text_changelog;
+        private System.Windows.Forms.PictureBox buttons_teamspeak;
     }
 }
 
