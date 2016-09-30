@@ -1121,6 +1121,7 @@ namespace TanoaRPG_Launcher
 
         private void text_changelog_Click(object sender, EventArgs e) => Process.Start(new StreamReader(new WebClient().OpenRead("http://cdn.cat24max.de/tanoarpg/currentVersionChangelog.txt")).ReadToEnd());
 
+        private void buttons_teamspeak_Click(object sender, EventArgs e) => System.Diagnostics.Process.Start("ts3server://ts.tanoarpg.de?port=9987");
     }
 
 }
